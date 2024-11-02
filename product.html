@@ -8,6 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="logo.jpg" type="image/x-icon" />
+
 </head>
 <body>
     <header class="header">
@@ -22,23 +23,195 @@
 
     <section class="product">
         <div class="product-content">
-            <h1>Sản phẩm</h1>
+            <h1>Danh mục ảnh</h1>
             <div class="product-grid">
                 <div class="product-item">
                     <img style="width: 250px;height: 300px;" src="ds1.JPG" alt="Home Image">
-                    <h2>Sản phẩm 1</h2>
+                    <h2 style="font-family: 'Brush Script MT', cursive;">Sản phẩm 1</h2>
                     <p></p>
                     <a href="https://drive.google.com/drive/folders/1gBwOT0Kvj_i099f18a-NkfCOJbhdxImA?usp=drive_link" class="btn">Xem thêm</a>
                 </div>
                 <div class="product-item">
                     <img style="width: 250px;height: 300px;" src="ds2.jpg" alt="2">
-                    <h2>Sản phẩm 2</h2>
+                    <h2 style="font-family: 'Brush Script MT', cursive;">Sản phẩm 2</h2>
                     <p></p>
                     <a href="https://drive.google.com/drive/folders/1kNM47jYEThPsUClvPEnMLz30CqDhdwoC?usp=drive_link" class="btn">Xem thêm</a>
                 </div>
-
+                <div class="product-item">
+                    <img style="width: 250px;height: 300px;" src="ds2.jpg" alt="2">
+                    <h2 style="font-family: 'Brush Script MT', cursive;">Sản phẩm 3</h2>
+                    <p></p>
+                    <a href="https://drive.google.com/drive/folders/1kNM47jYEThPsUClvPEnMLz30CqDhdwoC?usp=drive_link" class="btn">Xem thêm</a>
+                </div>
             </div>
         </div>
     </section>
+    <div class="carousel-container">
+        <h1 style="text-align: center;color: aqua;margin-bottom: 30px;">Ảnh nổi bật</h1>
+        <div class="carousel-slide" >
+            <img class="carousel-item" src="avata.jpg" alt="Hình ảnh 1">
+            <img class="carousel-item" src="ds1.JPG" alt="Hình ảnh 2">
+            <img class="carousel-item" src="ds2.jpg" alt="Hình ảnh 3">
+            <img class="carousel-item" src="avata.jpg" alt="Hình ảnh 1">
+            <img class="carousel-item" src="ds1.JPG" alt="Hình ảnh 2">
+            <img class="carousel-item" src="ds2.jpg" alt="Hình ảnh 3">  
+        </div>
+        <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
+    </div>         
+    <!-- Phần Đánh giá khách hàng -->
+    <section class="testimonials">
+        <div class="testimonials-content">
+            <h1>Đánh giá từ khách hàng</h1>
+            <div class="testimonial-grid" id="testimonialGrid">
+                <!-- Các đánh giá ban đầu -->
+                <div class="testimonial-item">
+                    <p>“Ảnh rất đẹp và chuyên nghiệp! Chúng tôi rất hài lòng với dịch vụ của Memoriesfotofilm.”</p>
+                    <div class="stars">★★★★☆</div>
+                    <h3>- Trần Tiến</h3>
+                </div>
+                <div class="testimonial-item">
+                    <p>“Những khoảnh khắc đẹp đã được lưu giữ hoàn hảo. Cảm ơn rất nhiều!”</p>
+                    <div class="stars">★★★★★</div>
+                    <h3>- Độc hành</h3>
+                </div>
+                <div class="testimonial-item">
+                    <p>“Dịch vụ rất chuyên nghiệp và nhanh chóng. Tôi rất hài lòng!”</p>
+                    <div class="stars">★★★★★</div>
+                    <h3>- Chill</h3>
+                </div>
+                <div class="testimonial-item">
+                    <p>“Kinh nghiệm tuyệt vời, ảnh chụp rất đẹp!”</p>
+                    <div class="stars">★★★★☆</div>
+                    <h3>- Người thích phiêu lưu</h3>
+                </div>
+                <div class="testimonial-item">
+                    <p>“Rất khuyến khích dịch vụ này!”</p>
+                    <div class="stars">★★★★★</div>
+                    <h3>- Nhiếp ảnh</h3>
+                </div>
+            </div>            
+            <!-- Nút "Xem thêm" -->
+            <button id="loadMore" class="load-more" onclick="loadMoreReviews()">Xem thêm</button>
+
+            <!-- Form đánh giá khách hàng -->
+            <div class="review-form">
+                <h2>Để lại đánh giá của bạn</h2>
+                <form id="reviewForm">
+                    <label for="name">Tên của bạn:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="rating">Chọn số sao:</label>
+                    <div class="star-rating">
+                        <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="5 sao">★</label>
+                        <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 sao">★</label>
+                        <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 sao">★</label>
+                        <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 sao">★</label>
+                        <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 sao">★</label>
+                    </div>
+
+                    <label for="comment">Đánh giá của bạn:</label>
+                    <textarea id="comment" name="comment" rows="4" required></textarea>
+
+                    <button type="button" class="submit-btn" onclick="addReview()">Gửi đánh giá</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let reviewsToShow = 3; // Chỉ hiển thị 3 đánh giá ban đầu
+
+        function loadMoreReviews() {
+            const reviews = document.querySelectorAll('.testimonial-item');
+            reviewsToShow += 3; // Tăng thêm 3 đánh giá mỗi lần
+
+            reviews.forEach((review, index) => {
+                review.style.display = index < reviewsToShow ? 'block' : 'none';
+            });
+
+            // Ẩn nút "Xem thêm" nếu không còn đánh giá nào để hiển thị
+            if (reviewsToShow >= reviews.length) {
+                document.getElementById("loadMore").style.display = 'none';
+            } else {
+                document.getElementById("loadMore").style.display = 'inline-block';
+            }
+        }
+
+        function addReview() {
+            const name = document.getElementById("name").value;
+            const comment = document.getElementById("comment").value;
+            const rating = document.querySelector('input[name="rating"]:checked')?.value || 0;
+
+            if (name && comment && rating) {
+                const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
+                
+                const testimonialGrid = document.getElementById("testimonialGrid");
+                const newReview = document.createElement("div");
+                newReview.className = "testimonial-item";
+                newReview.innerHTML = `
+                    <p>“${comment}”</p>
+                    <div class="stars">${stars}</div>
+                    <h3>- ${name}</h3>
+                `;
+
+                testimonialGrid.prepend(newReview);
+
+                document.getElementById("reviewForm").reset();
+                alert("Cảm ơn bạn đã đánh giá!");
+
+                // Cập nhật hiển thị sau khi thêm
+                const reviews = document.querySelectorAll('.testimonial-item');
+                reviews.forEach((review, index) => {
+                    review.style.display = index < reviewsToShow ? 'block' : 'none';
+                });
+
+                if (reviews.length <= reviewsToShow) {
+                    document.getElementById("loadMore").style.display = 'none';
+                }
+            } else {
+                alert("Vui lòng điền đầy đủ thông tin và chọn số sao.");
+            }
+        }
+
+        // Ẩn các đánh giá vượt quá số lượng ban đầu
+        document.addEventListener("DOMContentLoaded", () => {
+            const reviews = document.querySelectorAll('.testimonial-item');
+            reviews.forEach((review, index) => {
+                review.style.display = index < reviewsToShow ? 'block' : 'none';
+            });
+
+            if (reviews.length <= reviewsToShow) {
+                document.getElementById("loadMore").style.display = 'none';
+            }
+        });
+        let currentSlide = 0; // Chỉ số của hình ảnh hiện tại
+const visibleSlides = 3; // Số lượng hình ảnh hiển thị
+const totalSlides = document.querySelectorAll('.carousel-item').length; // Tổng số hình ảnh
+
+function moveSlide(direction) {
+    currentSlide += direction;
+
+    // Nếu di chuyển sang trái
+    if (currentSlide < 0) {
+        currentSlide = totalSlides - visibleSlides; // Về hình ảnh cuối cùng
+    } else if (currentSlide > totalSlides - visibleSlides) { // Nếu vượt quá hình ảnh cuối cùng
+        currentSlide = 0; // Về hình ảnh đầu tiên
+    }
+
+    const offset = -currentSlide * (100 / visibleSlides);
+    document.querySelector('.carousel-slide').style.transform = `translateX(${offset}%)`;
+}
+
+// Tự động di chuyển slide mỗi 3 giây
+setInterval(() => moveSlide(1), 3000);
+
+// Khởi tạo để hiển thị đúng khi tải trang
+document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll('.carousel-item');
+    document.querySelector('.carousel-slide').style.width = `${(slides.length) * (100 / visibleSlides)}%`; // Đặt chiều rộng cho slide
+});
+
+    </script>       
 </body>
 </html>
