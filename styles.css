@@ -215,7 +215,7 @@ body {
 
 .product-grid {
     display: flex;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
     gap: 20px;
     justify-content: center;
 }
@@ -500,7 +500,7 @@ body {
 
 .carousel-container {
     position: relative;
-    max-width: 90%;
+    max-width: 80%;
     width: 80%;
     margin: auto;
     overflow: hidden; /* Ẩn các phần không nhìn thấy */
@@ -508,7 +508,7 @@ body {
 
 .carousel-item {
     max-width: 100%; /* Kích thước ảnh */
-    height: 300px; /* Kích thước ảnh */
+    height: 250px; /* Kích thước ảnh */
     object-fit: cover; /* Giữ tỉ lệ ảnh */
     margin: 0 5px; /* Khoảng cách giữa các ảnh */
 }

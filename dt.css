@@ -1,0 +1,53 @@
+/* styles.css */
+
+/* Bố cục mặc định cho màn hình lớn hơn */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+}
+
+/* Bố cục cho thiết bị di động */
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar a {
+        padding: 10px 0;
+        text-align: center; /* Căn giữa các liên kết */
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr; /* Mỗi sản phẩm chiếm toàn bộ chiều rộng */
+    }
+
+    .product-item {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .review-form {
+        font-size: 14px; /* Kích thước phông chữ nhỏ hơn cho điện thoại */
+    }
+
+    h1, h2 {
+        font-size: 1.5em; /* Giảm kích thước tiêu đề */
+    }
+
+    .testimonial-grid {
+        flex-direction: column; /* Xếp dọc cho đánh giá khách hàng */
+    }
+
+    /* Ẩn nút "Xem thêm" nếu có quá nhiều đánh giá */
+    .load-more {
+        display: block;
+        margin: 10px auto; /* Căn giữa nút "Xem thêm" */
+    }
+}

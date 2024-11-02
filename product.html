@@ -23,25 +23,31 @@
 
     <section class="product">
         <div class="product-content">
-            <h1>Danh mục ảnh</h1>
+            <h1>Bộ ảnh</h1>
             <div class="product-grid">
                 <div class="product-item">
-                    <img style="width: 250px;height: 300px;" src="ds1.JPG" alt="Home Image">
-                    <h2 style="font-family: 'Brush Script MT', cursive;">Sản phẩm 1</h2>
+                    <img style="width: 250px;height: 300px;" src="anhcuoi.JPG" alt="Home Image">
+                    <h2>Bộ ảnh cưới 1</h2>
                     <p></p>
-                    <a href="https://drive.google.com/drive/folders/1gBwOT0Kvj_i099f18a-NkfCOJbhdxImA?usp=drive_link" class="btn">Xem thêm</a>
+                    <a href="https://drive.google.com/drive/folders/1stUYL8awSLWa6emlVdNhXrNx4sh5YwHV?usp=drive_link" class="btn">Xem thêm</a>
                 </div>
                 <div class="product-item">
                     <img style="width: 250px;height: 300px;" src="ds2.jpg" alt="2">
-                    <h2 style="font-family: 'Brush Script MT', cursive;">Sản phẩm 2</h2>
+                    <h2>Bộ ảnh tiệc</h2>
                     <p></p>
                     <a href="https://drive.google.com/drive/folders/1kNM47jYEThPsUClvPEnMLz30CqDhdwoC?usp=drive_link" class="btn">Xem thêm</a>
                 </div>
                 <div class="product-item">
-                    <img style="width: 250px;height: 300px;" src="ds2.jpg" alt="2">
-                    <h2 style="font-family: 'Brush Script MT', cursive;">Sản phẩm 3</h2>
+                    <img style="width: 250px;height: 300px;" src="anhcuoi2.jpg" alt="2">
+                    <h2>Bộ anh cưới 2</h2>
                     <p></p>
-                    <a href="https://drive.google.com/drive/folders/1kNM47jYEThPsUClvPEnMLz30CqDhdwoC?usp=drive_link" class="btn">Xem thêm</a>
+                    <a href="https://drive.google.com/drive/folders/1I2sjCm6TFbdIW40PJ9r3y7kBb4WjHXJw?usp=sharing" class="btn">Xem thêm</a>
+                </div>
+                <div class="product-item">
+                    <img style="width: 250px;height: 300px;" src="anhcuoi3.JPG" alt="2">
+                    <h2>Bộ ảnh cưới 3</h2>
+                    <p></p>
+                    <a href="https://drive.google.com/drive/folders/1ITjzxgOJ1xm3Swi_UjTBHRn4eyhjlwTg?usp=sharing" class="btn">Xem thêm</a>
                 </div>
             </div>
         </div>
@@ -49,12 +55,15 @@
     <div class="carousel-container">
         <h1 style="text-align: center;color: aqua;margin-bottom: 30px;">Ảnh nổi bật</h1>
         <div class="carousel-slide" >
-            <img class="carousel-item" src="avata.jpg" alt="Hình ảnh 1">
+            <img class="carousel-item" src="anhcuoi.JPG" alt="Hình ảnh 1">
             <img class="carousel-item" src="ds1.JPG" alt="Hình ảnh 2">
-            <img class="carousel-item" src="ds2.jpg" alt="Hình ảnh 3">
-            <img class="carousel-item" src="avata.jpg" alt="Hình ảnh 1">
+            <img class="carousel-item" src="anhcuoi2.jpg" alt="Hình ảnh 3">
+            <img class="carousel-item" src="anhcuoi3.JPG" alt="Hình ảnh 1">
             <img class="carousel-item" src="ds1.JPG" alt="Hình ảnh 2">
-            <img class="carousel-item" src="ds2.jpg" alt="Hình ảnh 3">  
+            <img class="carousel-item" src="anhcuoi2.jpg" alt="Hình ảnh 3">  
+            <img class="carousel-item" src="anhcuoi3.JPG" alt="Hình ảnh 1">
+            <img class="carousel-item" src="ds1.JPG" alt="Hình ảnh 2">
+            <img class="carousel-item" src="anhcuoi2.jpg" alt="Hình ảnh 3">  
         </div>
         <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
         <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
@@ -185,31 +194,32 @@
                 document.getElementById("loadMore").style.display = 'none';
             }
         });
-        let currentSlide = 0; // Chỉ số của hình ảnh hiện tại
-const visibleSlides = 3; // Số lượng hình ảnh hiển thị
-const totalSlides = document.querySelectorAll('.carousel-item').length; // Tổng số hình ảnh
+let currentSlide = 0; // Chỉ số của hình ảnh hiện tại
+const visibleSlides = 3; // Số lượng hình ảnh hiển thị cùng lúc
+const slides = document.querySelectorAll('.carousel-item'); // Lấy tất cả các hình ảnh trong carousel
+const totalSlides = slides.length; // Tổng số hình ảnh
 
 function moveSlide(direction) {
     currentSlide += direction;
 
-    // Nếu di chuyển sang trái
+    // Xử lý khi trượt vượt quá hình ảnh cuối cùng hoặc quay lại hình ảnh đầu tiên
     if (currentSlide < 0) {
-        currentSlide = totalSlides - visibleSlides; // Về hình ảnh cuối cùng
-    } else if (currentSlide > totalSlides - visibleSlides) { // Nếu vượt quá hình ảnh cuối cùng
-        currentSlide = 0; // Về hình ảnh đầu tiên
+        currentSlide = totalSlides - visibleSlides; // Quay về cuối
+    } else if (currentSlide >= totalSlides) { 
+        currentSlide = 0; // Quay về đầu
     }
 
+    // Tính toán vị trí chuyển đổi của slide
     const offset = -currentSlide * (100 / visibleSlides);
     document.querySelector('.carousel-slide').style.transform = `translateX(${offset}%)`;
 }
 
-// Tự động di chuyển slide mỗi 3 giây
+// Tự động chuyển ảnh mỗi 3 giây
 setInterval(() => moveSlide(1), 3000);
 
-// Khởi tạo để hiển thị đúng khi tải trang
+// Cài đặt kích thước khi trang tải
 document.addEventListener("DOMContentLoaded", () => {
-    const slides = document.querySelectorAll('.carousel-item');
-    document.querySelector('.carousel-slide').style.width = `${(slides.length) * (100 / visibleSlides)}%`; // Đặt chiều rộng cho slide
+    document.querySelector('.carousel-slide').style.width = `${totalSlides * (100 / visibleSlides)}%`; // Đặt chiều rộng cho slide
 });
 
     </script>       
